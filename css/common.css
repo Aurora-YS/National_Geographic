@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{font-size: 10px;}
+html, body{margin: 0; padding: 0;}
+header, section, article, aside, main, nav, footer{display: block;}
+h1, h2, h3, h4, h5, h6, p{margin: 0; padding: 0; user-select: none;}
+ul, ol{margin: 0; padding: 0; list-style: none;}
+a{text-decoration: none;}
+:root{
+    --real-black: #000000;
+    --real-white: #ffffff;
+    --main-yellow: #FFDB00;
+    --medium-grey: #707070;
+    --line-grey: #555555;
+    --dark-grey: #333333;
+}
+.wrap{
+    width: 1200px;
+    height: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+
+/* header 영역 */
+header{
+    height: 80px;
+    background-color: var(--real-black);
+    border-bottom: 1px solid var(--line-grey);
+    position: relative; 
+}
+header .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .wrap .logo{}
+header .wrap .logo a{display: block;}
+header .wrap .logo a img{
+    display: block;
+    height: 40px;
+}
+
+header .wrap nav{}
+header .wrap nav > ul{display: flex;}
+header .wrap nav > ul > li{
+    line-height: 80px;
+    padding:  0 15px;
+    transition: padding 0.5s;
+}
+header .wrap nav > ul > li > a{
+    display: block;
+    font-size: 1.4rem;
+    color: var(--real-white);
+    text-transform: uppercase;
+    transition: color 0.5s;
+}
+header .wrap nav > ul > li:hover > a{color: var(--main-yellow);}
+header .wrap nav > ul > li > .sub_menu{
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 80px;
+    left: 0;
+    z-index: 2;
+    background-color: var(--real-black);
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--line-grey);
+}
+header .wrap nav > ul > li > .sub_menu.active{
+    height: 143px;
+    visibility: visible;
+    transition: height 0.5s;
+}
+header .wrap nav > ul > li > .sub_menu > ul{width: 180px; padding: 0 10px;}
+header .wrap nav > ul > li > .sub_menu > ul > li{}
+header .wrap nav > ul > li > .sub_menu > ul > li:nth-child(1){padding-bottom: 20px;}
+header .wrap nav > ul > li > .sub_menu > ul > li > a{
+    display: block;
+    line-height: 1;
+    font-size: 1.4rem;
+    color: var(--real-white);
+    text-transform: uppercase;
+    opacity: 0;
+    transition: color 0.5s;
+}
+header .wrap nav > ul > li > .sub_menu.active > ul > li > a{
+    opacity: 1;
+    transition: opacity 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+header .wrap nav > ul > li > .sub_menu > ul > li > a:hover{color: var(--main-yellow);}
+
+header .wrap .mypage{}
+header .wrap .mypage ul{display: flex;}
+header .wrap .mypage ul li{padding-left: 20px;}
+header .wrap .mypage ul li a, footer .wrap .top .sns ul li a{
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s;
+}
+
+
+
+/* footer 영역 */
+footer{background-color: var(--real-black);}
+footer .wrap{}
+footer .wrap .top{
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+footer .wrap .top .logo{}
+footer .wrap .top .logo a{display: block;}
+footer .wrap .top .logo a img{
+    display: block;
+    height: 40px;
+}
+
+footer .wrap .top .menu{}
+footer .wrap .top .menu ul{display: flex;}
+footer .wrap .top .menu ul li{
+    padding-right: 30px;
+    transition: padding-right 0.5s;
+}
+footer .wrap .top .menu ul li a{
+    display: block;
+    color: var(--real-white);
+    font-size: 1.4rem;
+    transition: color 0.5s;
+}
+footer .wrap .top .menu ul li a:hover{color: var(--main-yellow);}
+
+footer .wrap .top .sns{}
+footer .wrap .top .sns ul{display: flex;}
+footer .wrap .top .sns ul li{padding-left: 10px;}
+footer .wrap .top .sns ul li:nth-child(3) a{width: 22px;}
+
+footer .wrap .copy{
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+footer .wrap .copy p{
+    font-size: 1.4rem;
+    color: var(--medium-grey);
+}
